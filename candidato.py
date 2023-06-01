@@ -6,5 +6,5 @@ class Candidato:
         self.numero = numero
         self.partido = partido
 
-    def saudacao(self):
-        print("Olá, meu nome é", self.nome)
+    def print_caditado(self):
+        print(self.nome + " (" + self.cargo + ") " + " Partido: " + self.partido + " Número: " + str(self.numero))
