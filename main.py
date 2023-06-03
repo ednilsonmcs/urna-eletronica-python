@@ -29,23 +29,22 @@ opcao = input("Digite a opção desejada:\n")
 while opcao != "1":
     match opcao:
         case "0":
-
             print("*** PRESIDENTES ***")
             for presidente in presidentes:
                 presidente.print_caditado()
             
             votoPresidente = int(input("Digite o número para PRESIDENTE:\n"))
 
-            presidenteSelecionado = list(filter( lambda obj: obj.numero == votoPresidente, presidentes))
+            presidenteSelecionado = list(filter( lambda presidente: presidente.numero == votoPresidente, presidentes))
 
             while(len(presidenteSelecionado) == 0):
                 print("\n")
                 print("Candidato não cadastrado.")
                 print("Selecione um novo candidato.")
                 votoPresidente = int(input("Digite o número para PRESIDENTE:\n"))
-                presidenteSelecionado = list(filter( lambda obj: obj.numero == votoPresidente, presidentes))
+                presidenteSelecionado = list(filter( lambda senador: senador.numero == votoPresidente, presidentes))
                 print("\n")
-
+            
             urna.votosPresidente.append(votoPresidente)            
             # TODO verificar se o número é um dos presidentes cadastrados, se não for pedir pra informar um número ou dar a opção de abortar (colocar em um while)
 
@@ -88,14 +87,13 @@ while opcao != "1":
 # TODO apresentar votos sumarizados como nome dos canditados e quantos votos receberam
 
 print("\n")
-
-print("\n")
 print("################################")
 print("##### ELEIÇÕES ENCERRADAS ######")
 print("################################\n")
 
 votosPresidenteSumarizado = {}
-print("Votos para PRESIDENTE:\n")
+print("***** Votos para PRESIDENTE ***** ")
+
 for voto in urna.votosPresidente:
     if voto in votosPresidenteSumarizado:
         votosPresidenteSumarizado[voto] = votosPresidenteSumarizado[voto] + 1
@@ -109,7 +107,7 @@ for key, value in votosPresidenteSumarizado.items():
 print("\n")
 
 votosSenadorSumarizado = {}
-print("Votos para SENADOR:\n")
+print("***** Votos para SENADOR*****")
 for voto in urna.votosSenador:
     if voto in votosSenadorSumarizado:
         votosSenadorSumarizado[voto] = votosSenadorSumarizado[voto] + 1
