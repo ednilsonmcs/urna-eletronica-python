@@ -89,6 +89,11 @@ while opcao != "1":
 
 print("\n")
 
+print("\n")
+print("################################")
+print("##### ELEIÇÕES ENCERRADAS ######")
+print("################################\n")
+
 votosPresidenteSumarizado = {}
 print("Votos para PRESIDENTE:\n")
 for voto in urna.votosPresidente:
@@ -96,7 +101,11 @@ for voto in urna.votosPresidente:
         votosPresidenteSumarizado[voto] = votosPresidenteSumarizado[voto] + 1
     else:
         votosPresidenteSumarizado[voto] = 1
-print(votosPresidenteSumarizado)
+
+for key, value in votosPresidenteSumarizado.items():
+    for presidente in presidentes:
+        if(presidente.numero == key):
+            print(presidente.nome + ": " + str(value) + " votos")
 print("\n")
 
 votosSenadorSumarizado = {}
@@ -106,6 +115,11 @@ for voto in urna.votosSenador:
         votosSenadorSumarizado[voto] = votosSenadorSumarizado[voto] + 1
     else:
         votosSenadorSumarizado[voto] = 1
-print(votosSenadorSumarizado)
+
+for key, value in votosSenadorSumarizado.items():
+    for senador in senadores:
+        if(senador.numero == key):
+            print(senador.nome + ": " + str(value) + " votos")        
+
 print("\n")
 
